@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Καταφύγια</title>
+</head>
+<body>
+    <h2>Λίστα Καταφυγίων</h2>
+    <ul>
+        <li th:each="s : ${shelters}" th:text="${s.name}">Shelter Name</li>
+    </ul>
+</body>
+</html>

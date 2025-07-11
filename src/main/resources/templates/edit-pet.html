@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Επεξεργασία Κατοικιδίου</title>
+</head>
+<body>
+    <h2>Επεξεργασία Κατοικιδίου</h2>
+    <form th:action="@{'/pets/edit/' + ${pet.id}}" method="post">
+        Όνομα: <input type="text" name="name" th:value="${pet.name}" /><br>
+        Είδος: <input type="text" name="species" th:value="${pet.species}" /><br>
+        Φυλή: <input type="text" name="breed" th:value="${pet.breed}" /><br>
+        Ηλικία: <input type="number" name="age" th:value="${pet.age}" /><br>
+        Υγεία: <input type="text" name="healthStatus" th:value="${pet.healthStatus}" /><br>
+        <button type="submit">Αποθήκευση</button>
+    </form>
+</body>
+</html>

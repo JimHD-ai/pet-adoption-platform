@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Υποβολή Αιτήματος Υιοθεσίας</title>
+</head>
+<body>
+    <h2>Υποβολή Αιτήματος Υιοθεσίας</h2>
+    <form th:action="@{/adoption-requests/submit}" th:object="${request}" method="post">
+        <label>Όνομα χρήστη:</label>
+        <input type="text" th:field="*{applicantName}" required/><br>
+
+        <label>ID Κατοικιδίου:</label>
+        <input type="number" th:field="*{petId}" required/><br>
+
+        <button type="submit">Υποβολή</button>
+    </form>
+</body>
+</html>

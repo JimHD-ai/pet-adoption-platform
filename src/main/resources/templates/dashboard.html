@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Dashboard</title>
+</head>
+<body>
+<h2>Καλωσήρθες, <span th:text="${username}">Χρήστης</span>!</h2>
+
+<ul>
+    <li><a href="/pets">Δες όλα τα διαθέσιμα κατοικίδια</a></li>
+</ul>
+
+<form th:action="@{/logout}" method="post">
+    <button type="submit">Αποσύνδεση</button>
+</form>
+</body>
+</html>

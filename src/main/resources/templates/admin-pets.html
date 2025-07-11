@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Κατοικίδια</title>
+</head>
+<body>
+    <h2>Λίστα Κατοικιδίων</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th><th>Όνομα</th><th>Είδος</th><th>Υγεία</th><th>Ενέργειες</th>
+        </tr>
+        <tr th:each="pet : ${pets}">
+            <td th:text="${pet.id}">1</td>
+            <td th:text="${pet.name}">Rex</td>
+            <td th:text="${pet.species}">Dog</td>
+            <td th:text="${pet.healthStatus}">Healthy</td>
+            <td>
+                <form th:action="@{'/admin/pets/delete/' + ${pet.id}}" method="post">
+                    <button type="submit">Διαγραφή</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

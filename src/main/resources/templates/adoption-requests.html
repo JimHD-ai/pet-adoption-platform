@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Αιτήματα Υιοθεσίας</title>
+</head>
+<body>
+<h2>Λίστα Αιτημάτων Υιοθεσίας</h2>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Αιτών</th>
+            <th>ID Κατοικιδίου</th>
+            <th>Ημερομηνία</th>
+            <th>Κατάσταση</th>
+            <th>Ενέργειες</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="request : ${adoptionRequests}">
+            <td th:text="${request.applicantName}">Αιτών</td>
+            <td th:text="${request.petId}">ID Κατοικιδίου</td>
+            <td th:text="${#temporals.format(request.requestDate, 'dd/MM/yyyy')}">Ημερομηνία</td>
+            <td th:text="${request.status}">Κατάσταση</td>
+            <td>
+                <a th:href="@{/adoption-requests/approve/{id}(id=${request.id})}">✅ Έγκριση</a> |
+                <a th:href="@{/adoption-requests/reject/{id}(id=${request.id})}">❌ Απόρριψη</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<br>
+<a href="/dashboard">Επιστροφή στο Dashboard</a>
+</body>
+</html>

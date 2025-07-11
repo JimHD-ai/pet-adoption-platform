@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Κτηνίατροι</title>
+</head>
+<body>
+    <h2>Λίστα Κτηνιάτρων</h2>
+    <ul>
+        <li th:each="v : ${vets}" th:text="${v.name}">Vet Name</li>
+    </ul>
+</body>
+</html>

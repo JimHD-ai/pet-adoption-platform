@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Προσθήκη Κατοικιδίου</title>
+</head>
+<body>
+    <h2>Προσθήκη Κατοικιδίου</h2>
+    <form th:action="@{/pets/add}" method="post">
+        Όνομα: <input type="text" name="name" /><br>
+        Είδος: <input type="text" name="species" /><br>
+        Φυλή: <input type="text" name="breed" /><br>
+        Ηλικία: <input type="number" name="age" /><br>
+        Υγεία: <input type="text" name="healthStatus" /><br>
+        <button type="submit">Αποθήκευση</button>
+    </form>
+</body>
+</html>

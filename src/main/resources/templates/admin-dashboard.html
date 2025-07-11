@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+<h2>Καλωσήρθες, Admin!</h2>
+
+<p>Σύνολο Χρηστών: <strong th:text="${totalUsers}">0</strong></p>
+<p>Σύνολο Κατοικιδίων: <strong th:text="${totalPets}">0</strong></p>
+<p>Σύνολο Αιτημάτων Υιοθεσίας: <strong th:text="${totalRequests}">0</strong></p>
+
+<ul>
+    <li><a href="/admin/users">Διαχείριση Χρηστών</a></li>
+    <li><a href="/admin/pets">Διαχείριση Κατοικιδίων</a></li>
+    <li><a href="/admin/requests">Διαχείριση Αιτημάτων</a></li>
+    <li><a href="/admin/shelters">Διαχείριση Καταφυγίων</a></li>
+    <li><a href="/admin/vets">Διαχείριση Κτηνιάτρων</a></li>
+</ul>
+
+<form th:action="@{/logout}" method="post">
+    <button type="submit">Αποσύνδεση</button>
+</form>
+</body>
+</html>

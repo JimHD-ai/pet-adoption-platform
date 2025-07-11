@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Αιτήματα Υιοθεσίας</title>
+</head>
+<body>
+    <h2>Όλα τα Αιτήματα Υιοθεσίας</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th><th>Κατοικίδιο</th><th>Χρήστης</th><th>Ημερομηνία</th><th>Κατάσταση</th><th>Ενέργειες</th>
+        </tr>
+        <tr th:each="req : ${requests}">
+            <td th:text="${req.id}">1</td>
+            <td th:text="${req.pet.name}">Rex</td>
+            <td th:text="${req.user.username}">demo</td>
+            <td th:text="${req.requestDate}">2025-07-08</td>
+            <td th:text="${req.status}">PENDING</td>
+            <td>
+                <form th:action="@{'/admin/requests/approve/' + ${req.id}}" method="post" style="display:inline;">
+                    <button type="submit">Έγκριση</button>
+                </form>
+                <form th:action="@{'/admin/requests/reject/' + ${req.id}}" method="post" style="display:inline;">
+                    <button type="submit">Απόρριψη</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Χρήστες</title>
+</head>
+<body>
+    <h2>Λίστα Χρηστών</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th><th>Όνομα Χρήστη</th><th>Email</th><th>Ενέργειες</th>
+        </tr>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.id}">1</td>
+            <td th:text="${user.username}">username</td>
+            <td th:text="${user.email}">email</td>
+            <td>
+                <form th:action="@{'/admin/users/delete/' + ${user.id}}" method="post">
+                    <button type="submit">Διαγραφή</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

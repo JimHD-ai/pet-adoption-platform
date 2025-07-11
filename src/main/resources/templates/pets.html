@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Λίστα Κατοικιδίων</title>
+</head>
+<body>
+<h2>Λίστα Κατοικιδίων</h2>
+
+<a href="/pets/add">➕ Προσθήκη νέου κατοικιδίου</a>
+<br><br>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Όνομα</th>
+            <th>Είδος</th>
+            <th>Φυλή</th>
+            <th>Ηλικία</th>
+            <th>Κατάσταση Υγείας</th>
+            <th>Κατάσταση Υιοθεσίας</th>
+            <th>Ενέργειες</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="pet : ${pets}">
+            <td th:text="${pet.name}">Όνομα</td>
+            <td th:text="${pet.species}">Είδος</td>
+            <td th:text="${pet.breed}">Φυλή</td>
+            <td th:text="${pet.age}">Ηλικία</td>
+            <td th:text="${pet.healthStatus}">Υγεία</td>
+            <td th:text="${pet.adoptionStatus}">Κατάσταση</td>
+            <td>
+                <a th:href="@{/pets/edit/{id}(id=${pet.id})}">✏️ Επεξεργασία</a>
+                |
+                <a th:href="@{/pets/delete/{id}(id=${pet.id})}" onclick="return confirm('Είσαι σίγουρος;')">🗑️ Διαγραφή</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<br>
+<a href="/dashboard">Επιστροφή στο Dashboard</a>
+</body>
+</html>
